@@ -1,0 +1,31 @@
+.navbar-default 
+{
+	background-color:#1a8cff;
+	border-color:#969696;
+	border-radius:0;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+{
+	color:#ffffff;
+}
+.navbar-default .navbar-nav>li>a{
+	color:#ffffff;
+}
+
+
+.navbar-default .navbar-text{
+	
+	color:#ffffff;
+	font-size:50px;
+}
+.navbar-default .navbar-toggle{
+	background-color:#428bca;
+}
+.navbar-default .dropdown-menu > li > a {
+    padding: 6px 0px;
+    color: rgb(255, 255, 255);
+	
+}
+

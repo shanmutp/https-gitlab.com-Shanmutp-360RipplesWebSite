@@ -1,0 +1,115 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>How to create a popup with CSS and Javascript | WebDesignAndSuch</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+
+</head>
+
+<body   onload="popup('popUpDiv')">
+
+<div id="container">
+
+
+<div align="center"><a href="http://www.webdesignandsuch.com"><img src="wds-demo.png" style="margin-top:0px"/></a>    </div>
+  <div id="mainContent">
+  
+  
+  
+  
+<p>This is a demo of how <strong>CSS can be used to create a popup</strong>. The old ways of creating popups by opening a new browser window is no longer a good solution since browsers block popups. </p>
+    <p>This page is set to open the popup when it's loaded (<strong>onload</strong>), and by clicking the link below you can also open the popup (<strong>onclick</strong>), giving you a couple different options to trigger the CSS popup.    </p>
+    
+    
+    
+<!--POPUP-->    
+    
+    <div id="blanket" style="display:none;"></div>
+	<div id="popUpDiv" style="display:none;">
+    
+    	<a href="#" onclick="popup('popUpDiv')" >Click to Close CSS Pop Up</a>
+	</div>	
+  <a href="#" onclick="popup('popUpDiv')">Click to Open CSS Pop Up</a>
+<!-- / POPUP-->     
+    
+    <p>&nbsp;</p>
+    <p>Check out the tutorial here to find out what's going on and to download the files you need to create your own CSS popup window. </p>
+    <p>   <a href="http://webdesignandsuch.com/2009/12/how-to-create-a-popup-with-css-and-javascript/" >Tutorials &amp; Downloadable Files</a></p>
+    
+    
+    
+    
+    <!-- end #mainContent --></div>
+<!-- end #container --></div>
+
+
+
+
+<script>
+function toggle(div_id) {
+	var el = document.getElementById(div_id);
+	if ( el.style.display == 'none' ) {	el.style.display = 'block';}
+	else {el.style.display = 'none';}
+}
+function blanket_size(popUpDivVar) {
+	if (typeof window.innerWidth != 'undefined') {
+		viewportheight = window.innerHeight;
+	} else {
+		viewportheight = document.documentElement.clientHeight;
+	}
+	if ((viewportheight > document.body.parentNode.scrollHeight) && (viewportheight > document.body.parentNode.clientHeight)) {
+		blanket_height = viewportheight;
+	} else {
+		if (document.body.parentNode.clientHeight > document.body.parentNode.scrollHeight) {
+			blanket_height = document.body.parentNode.clientHeight;
+		} else {
+			blanket_height = document.body.parentNode.scrollHeight;
+		}
+	}
+	var blanket = document.getElementById('blanket');
+	blanket.style.height = blanket_height + 'px';
+	var popUpDiv = document.getElementById(popUpDivVar);
+	popUpDiv_height=blanket_height/2-200;//200 is half popup's height
+	popUpDiv.style.top = popUpDiv_height + 'px';
+}
+function window_pos(popUpDivVar) {
+	if (typeof window.innerWidth != 'undefined') {
+		viewportwidth = window.innerHeight;
+	} else {
+		viewportwidth = document.documentElement.clientHeight;
+	}
+	if ((viewportwidth > document.body.parentNode.scrollWidth) && (viewportwidth > document.body.parentNode.clientWidth)) {
+		window_width = viewportwidth;
+	} else {
+		if (document.body.parentNode.clientWidth > document.body.parentNode.scrollWidth) {
+			window_width = document.body.parentNode.clientWidth;
+		} else {
+			window_width = document.body.parentNode.scrollWidth;
+		}
+	}
+	var popUpDiv = document.getElementById(popUpDivVar);
+	window_width=window_width/2-200;//200 is half popup's width
+	popUpDiv.style.left = window_width + 'px';
+}
+function popup(windowname) {
+	blanket_size(windowname);
+	window_pos(windowname);
+	toggle('blanket');
+	toggle(windowname);		
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
